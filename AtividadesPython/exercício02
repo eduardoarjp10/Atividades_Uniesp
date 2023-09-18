@@ -1,1 +1,219 @@
+"""LISTA DE EXERCÍCIO – 02 - REVISÃO (nisston)
+1. Crie uma classe chamada “Circulo” que tenha um atributo “raio”. Implemente um método chamado “calcular_area” que retorna a área do círculo.
+"""
 
+class Circulo:
+    def __init__(self, raio):
+        self.raio = raio
+
+    def calcular_area(self):
+        # A área do círculo é calculada usando a fórmula A = π * r^2
+        area = 3.14159265359 * (self.raio ** 2)
+        return area
+
+# Exemplo de uso da classe Circulo
+raio_do_circulo = 5.0  # Substitua com o raio desejado
+circulo = Circulo(raio_do_circulo)
+area_do_circulo = circulo.calcular_area()
+print(f'A área do círculo com raio {raio_do_circulo} é {area_do_circulo:.2f}')
+
+"""2. Crie uma classe chamada “Livro” que tenha atributos “titulo” e “autor”. Implemente um método chamado “detalhes” que retorna uma string com as informações do livro."""
+
+class Livro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+
+    def detalhes(self):
+        return f'Título: {self.titulo}\nAutor: {self.autor}'
+
+# Exemplo de uso da classe Livro
+livro1 = Livro("Dom Quixote", "Miguel de Cervantes")
+print(livro1.detalhes())
+
+livro2 = Livro("Harry Potter e a Pedra Filosofal", "J.K. Rowling")
+print(livro2.detalhes())
+
+"""3. Crie uma classe chamada “Retangulo” que tenha atributos “base” e “altura”. Implemente um método chamado “calcular_area” que retorna a área do retângulo."""
+
+class Retangulo:
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+
+    def calcular_area(self):
+        area = self.base * self.altura
+        return area
+
+# Exemplo de uso da classe Retangulo
+base_do_retangulo = 4.0  # Substitua com a base desejada
+altura_do_retangulo = 6.0  # Substitua com a altura desejada
+
+retangulo = Retangulo(base_do_retangulo, altura_do_retangulo)
+area_do_retangulo = retangulo.calcular_area()
+print(f'A área do retângulo com base {base_do_retangulo} e altura {altura_do_retangulo} é {area_do_retangulo:.2f}')
+
+"""4. Crie uma classe chamada “ContaBancaria” que tenha atributos “saldo” e “titular”. Implemente métodos “depositar” e “sacar” para manipular o saldo."""
+
+class ContaBancaria:
+    def __init__(self, titular, saldo=0.0):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.saldo += valor
+            return f'Depósito de R${valor:.2f} realizado. Novo saldo: R${self.saldo:.2f}'
+        else:
+            return 'Valor de depósito deve ser maior que zero.'
+
+    def sacar(self, valor):
+        if valor > 0 and valor <= self.saldo:
+            self.saldo -= valor
+            return f'Saque de R${valor:.2f} realizado. Novo saldo: R${self.saldo:.2f}'
+        elif valor <= 0:
+            return 'Valor de saque deve ser maior que zero.'
+        else:
+            return 'Saldo insuficiente para realizar o saque.'
+
+# Exemplo de uso da classe ContaBancaria
+conta = ContaBancaria("João da Silva", 1000.0)
+print(f"Titular da conta: {conta.titular}")
+print(f"Saldo atual: R${conta.saldo:.2f}")
+
+print(conta.depositar(500.0))
+print(conta.sacar(200.0))
+print(conta.sacar(1500.0))
+
+"""5. Crie uma classe chamada “Pessoa” com atributos “nome” e “idade”. Implemente um método chamado “falar” que imprime uma mensagem com o nome da pessoa."""
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def falar(self):
+        print(f"{self.nome} diz: 'Olá, como você está?'")
+
+# Exemplo de uso da classe Pessoa
+pessoa1 = Pessoa("Alice", 30)
+pessoa1.falar()
+
+pessoa2 = Pessoa("Bob", 25)
+pessoa2.falar()
+
+"""6. Crie uma classe chamada “Produto” com atributos “nome”, “preco” e “quantidade”. Implemente um método chamado “calcular_total” que retorna o valor total do produto (preço * quantidade)."""
+
+class Produto:
+    def __init__(self, nome, preco, quantidade):
+        self.nome = nome
+        self.preco = preco
+        self.quantidade = quantidade
+
+    def calcular_total(self):
+        return self.preco * self.quantidade
+
+# Exemplo de uso da classe Produto:
+produto1 = Produto("Camiseta", 20.0, 3)
+total1 = produto1.calcular_total()
+print(f"Produto: {produto1.nome}, Preço: R${produto1.preco}, Quantidade: {produto1.quantidade}")
+print(f"Total: R${total1}")
+
+"""7. Crie uma classe chamada “Carro” com atributos “marca”, “modelo” e “ano”. Implemente um método chamado “detalhes” que retorna uma string com as informações do carro."""
+
+class Carro:
+    def __init__(self, marca, modelo, ano):
+        self.marca = marca
+        self.modelo = modelo
+        self.ano = ano
+
+    def detalhes(self):
+        return f"Carro: {self.marca} {self.modelo} ({self.ano})"
+
+# Exemplo de uso da classe Carro:
+carro1 = Carro("Toyota", "Corolla", 2022)
+info_carro1 = carro1.detalhes()
+print(info_carro1)
+
+carro2 = Carro("Ford", "Mustang", 2021)
+info_carro2 = carro2.detalhes()
+print(info_carro2)
+
+"""8. Crie uma classe chamada “Aluno” com atributos “nome” e “notas”. Implemente um método chamado “calcular_media” que retorna a média das notas do aluno."""
+
+class Aluno:
+    def __init__(self, nome, notas):
+        self.nome = nome
+        self.notas = notas
+
+    def calcular_media(self):
+        if len(self.notas) == 0:
+            return 0.0  # Retorna 0 se não houver notas
+
+        soma = sum(self.notas)
+        media = soma / len(self.notas)
+        return media
+
+# Exemplo de uso da classe Aluno:
+aluno1 = Aluno("João", [7.5, 8.0, 6.5, 9.0])
+media1 = aluno1.calcular_media()
+print(f"Aluno: {aluno1.nome}, Notas: {aluno1.notas}")
+print(f"Média: {media1}")
+
+aluno2 = Aluno("Maria", [6.0, 7.0, 6.5, 8.5])
+media2 = aluno2.calcular_media()
+print(f"Aluno: {aluno2.nome}, Notas: {aluno2.notas}")
+print(f"Média: {media2}")
+
+"""9. Crie uma classe chamada “Triangulo” com atributos “lado1”, “lado2” e “lado3”. Implemente um método chamado “calcular_perimetro” que retorna o perímetro do triângulo."""
+
+class Triangulo:
+    def __init__(self, lado1, lado2, lado3):
+        self.lado1 = lado1
+        self.lado2 = lado2
+        self.lado3 = lado3
+
+    def calcular_perimetro(self):
+        return self.lado1 + self.lado2 + self.lado3
+
+# Exemplo de uso da classe Triangulo:
+triangulo1 = Triangulo(3, 4, 5)
+perimetro1 = triangulo1.calcular_perimetro()
+print(f"Lado 1: {triangulo1.lado1}, Lado 2: {triangulo1.lado2}, Lado 3: {triangulo1.lado3}")
+print(f"Perímetro: {perimetro1}")
+
+triangulo2 = Triangulo(6, 8, 10)
+perimetro2 = triangulo2.calcular_perimetro()
+print(f"Lado 1: {triangulo2.lado1}, Lado 2: {triangulo2.lado2}, Lado 3: {triangulo2.lado3}")
+print(f"Perímetro: {perimetro2}")
+
+"""10. Crie uma classe chamada “Funcionario” com atributos “nome”, “salario” e “cargo”. Implemente um método chamado “aumentar_salario” que recebe um valor percentual de aumento e atualiza o salário do funcionário."""
+
+class Funcionario:
+    def __init__(self, nome, salario, cargo):
+        self.nome = nome
+        self.salario = salario
+        self.cargo = cargo
+
+    def aumentar_salario(self, percentual_aumento):
+        if percentual_aumento > 0:
+            aumento = (self.salario * percentual_aumento) / 100
+            self.salario += aumento
+
+    def mostrar_informacoes(self):
+        return f"Nome: {self.nome}, Salário: R${self.salario}, Cargo: {self.cargo}"
+
+# Exemplo de uso da classe Funcionario:
+funcionario1 = Funcionario("João", 3000, "Analista")
+print(funcionario1.mostrar_informacoes())
+
+funcionario1.aumentar_salario(10)  # Aumento de 10%
+print("Após o aumento de 10%:")
+print(funcionario1.mostrar_informacoes())
+
+funcionario2 = Funcionario("Maria", 4000, "Gerente")
+print(funcionario2.mostrar_informacoes())
+
+funcionario2.aumentar_salario(5)  # Aumento de 5%
+print("Após o aumento de 5%:")
+print(funcionario2.mostrar_informacoes())
