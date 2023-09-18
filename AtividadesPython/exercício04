@@ -1,4 +1,4 @@
-"""LISTA DE EXERCÍCIO – 04 - REVISÃO (nisston)
+"""LISTA DE EXERCÍCIO – 04 - Lista ordenada (nisston)
 1. Escreva uma função em Python para ordenar um vetor de inteiros em ordem crescente usando o
 algoritmo de seleção.
 """
