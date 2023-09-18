@@ -10,18 +10,18 @@ public class Exercício1 {
         double Salario = sc.nextDouble();
         if(Salario > 950 &&Salario <=1250 ){
             Salario = Salario + (Salario *10)/100;
-            System.out.println("O salario do funcionario corresponde a " + Salario);
+            System.out.println("O salario do funcionario é " + Salario);
         }else if(Salario >= 1251 &&Salario <= 1500){
             Salario = Salario + (Salario * 15)/100;
-            System.out.println("O salario do funcionario corresponde a " + Salario);
+            System.out.println("O salario do funcionario é " + Salario);
         }else if(Salario > 1500 &&Salario <=- 2100){
             Salario = Salario + (Salario + 20)/100;
-            System.out.println("O salario do funcionario corresponde a " + Salario);
+            System.out.println("O salario do funcionario é " + Salario);
         }else if( Salario > 2100){
             Salario = Salario + (Salario + 25)/100;
-            System.out.println("O salario do funcionario corresponde a " + Salario);
+            System.out.println("O salario do funcionario é " + Salario);
         }else{
-            System.out.println("O valor não foi encontrado no nosso banco de dados");
+            System.out.println("O valor não encontrado no nosso banco de dados");
         }
         
 
