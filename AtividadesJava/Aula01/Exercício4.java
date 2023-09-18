@@ -5,7 +5,7 @@ public class Exercício4 {
 
     public static void main(String[] args) {
         
-        System.out.println("Seja bem vinda a nossa loja");
+        System.out.println("Bem vindo a nossa loja");
         
         Scanner sc = new Scanner(System.in);
         int x;
@@ -23,13 +23,13 @@ public class Exercício4 {
             
             switch(x){
                 case 1:
-                System.out.println("Capinha iphone x \n Capinha iphone xr \n Capinha iphone 12");
+                System.out.println("Fone de ouvido  \n Carregador de iphone \n Caixinha de som");
                 break;
                 case 2: 
-                System.out.println("Capinha iphone x = R$10,00 \n Capinha iphone xr R$15,00 \n Capinha ipho;ne 12 R$20,00"); 
+                System.out.println("Fone de ouvido = R$20,00 \n Carregador de iphone R$15,00 \n Caixinha de som R$100,00"); 
                 break;
                 case 3:
-                System.out.println("Qual seria a forma de pagamento: \n Dinheiro \n Cartão");
+                System.out.println("Forma de pagamento: \n Dinheiro \n Cartão");
 
             }
         }while(x==0);
