@@ -1,22 +1,21 @@
 package Aula04.Nota01;
 
-public class Carro extends Veiculo {
+public class Moto extends Veiculo {
 
-    private int cavalos;
+    private int cilindradas;
 
-    public Carro(String marca, String modelo, int anoDeFabricacao, int cavalos) {
+    public Moto(String marca, String modelo, int anoDeFabricacao, int cilindradas) {
         super(marca, modelo, anoDeFabricacao);
-        this.cavalos = cavalos;
-
+        this.cilindradas = cilindradas;
         //TODO Auto-generated constructor stub
     }
 
-    public int getcavalos() {
-        return cavalos;
+    public int getCilindradas() {
+        return cilindradas;
     }
 
-    public void setcavalos(int cavalos) {
-        this.cavalos = cavalos;
+    public void setCilindradas(int cilindradas) {
+        this.cilindradas = cilindradas;
     }
     
     public void ExibirDados(){
@@ -24,6 +23,6 @@ public class Carro extends Veiculo {
         System.out.println("Marca: " + getMarca());
         System.out.println("Modelo: " + getModelo());
         System.out.println("Ano de fabricação: " + getAnoDeFabricacao());
-        System.out.println("Potencia: " + cavalos);
+        System.out.println("Potencia: " + cilindradas);
     }
 }
