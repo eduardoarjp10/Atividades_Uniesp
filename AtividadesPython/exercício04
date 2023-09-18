@@ -1,1 +1,211 @@
+"""LISTA DE EXERCÍCIO – 04 - REVISÃO (nisston)
+1. Escreva uma função em Python para ordenar um vetor de inteiros em ordem crescente usando o
+algoritmo de seleção.
+"""
 
+def selection_sort(arr):
+    n = len(arr)
+
+    for i in range(n - 1):
+        # Encontre o índice do menor elemento restante no vetor não ordenado
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        # Troque o elemento atual com o menor elemento encontrado
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 90]
+selection_sort(vetor)
+print("Vetor ordenado:", vetor)
+
+"""2. Escreva uma função em Python para ordenar um vetor de inteiros, ele deve receber um parâmetro que
+serve como chave para realizar a ordenação crescente ou decrescente.
+"""
+
+def custom_sort(arr, reverse=False):
+    """
+    Ordena um vetor de inteiros em ordem crescente ou decrescente, dependendo do valor do parâmetro 'reverse'.
+
+    Args:
+        arr (list): O vetor a ser ordenado.
+        reverse (bool): Se True, a ordenação será decrescente; caso contrário, será crescente.
+
+    Returns:
+        list: O vetor ordenado.
+    """
+    arr.sort(reverse=reverse)
+    return arr
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 90]
+ordenado_crescente = custom_sort(vetor)
+print("Vetor ordenado crescente:", ordenado_crescente)
+
+ordenado_decrescente = custom_sort(vetor, reverse=True)
+print("Vetor ordenado decrescente:", ordenado_decrescente)
+
+"""3. Escreva um programa que encontre o elemento máximo em um vetor de inteiros não ordenado sem
+usar a função `max()`. Em seguida, encontre o elemento mínimo sem usar a função `min()`.
+"""
+
+def encontrar_maximo(vetor):
+    if len(vetor) == 0:
+        return None
+
+    maximo = vetor[0]
+
+    for elemento in vetor:
+        if elemento > maximo:
+            maximo = elemento
+
+    return maximo
+
+def encontrar_minimo(vetor):
+    if len(vetor) == 0:
+        return None
+
+    minimo = vetor[0]
+
+    for elemento in vetor:
+        if elemento < minimo:
+            minimo = elemento
+
+    return minimo
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 90]
+maximo = encontrar_maximo(vetor)
+minimo = encontrar_minimo(vetor)
+
+print("Elemento máximo:", maximo)
+print("Elemento mínimo:", minimo)
+
+"""4. Crie uma função que recebe um vetor de números inteiros e retorna o segundo menor número.
+Certifique-se de que sua função funcione mesmo se houver números duplicados no vetor.
+"""
+
+def segundo_menor(vetor):
+    if len(vetor) < 2:
+        return None  # Não é possível encontrar o segundo menor com menos de 2 elementos
+
+    vetor_ordenado = sorted(set(vetor))  # Remove duplicatas e ordena o vetor
+
+    if len(vetor_ordenado) < 2:
+        return None  # Não é possível encontrar o segundo menor se houver menos de 2 elementos distintos
+
+    return vetor_ordenado[1]  # O segundo elemento na lista ordenada é o segundo menor
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 25, 90]
+segundo_menor_numero = segundo_menor(vetor)
+
+if segundo_menor_numero is not None:
+    print("O segundo menor número é:", segundo_menor_numero)
+else:
+    print("Não foi possível encontrar o segundo menor número.")
+
+"""5. Implemente uma função que aceite um vetor de números inteiros e remova todos os elementos
+duplicados, retornando o vetor resultante sem duplicatas.
+"""
+
+def remover_duplicatas(vetor):
+    # Usando um conjunto (set) para manter os elementos únicos
+    elementos_unicos = set()
+
+    # Vetor resultante sem duplicatas
+    vetor_sem_duplicatas = []
+
+    for elemento in vetor:
+        if elemento not in elementos_unicos:
+            elementos_unicos.add(elemento)
+            vetor_sem_duplicatas.append(elemento)
+
+    return vetor_sem_duplicatas
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 25, 90]
+vetor_sem_duplicatas = remover_duplicatas(vetor)
+
+print("Vetor original:", vetor)
+print("Vetor sem duplicatas:", vetor_sem_duplicatas)
+
+"""6. Escreva um programa que ordene um vetor de inteiros em ordem decrescente e, em seguida, conte
+quantos números pares e quantos números ímpares existem no vetor ordenado.
+"""
+
+def ordenar_decrescente(vetor):
+    vetor.sort(reverse=True)  # Ordena o vetor em ordem decrescente
+
+def contar_pares_impares(vetor):
+    pares = 0
+    impares = 0
+
+    for numero in vetor:
+        if numero % 2 == 0:
+            pares += 1
+        else:
+            impares += 1
+
+    return pares, impares
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 25, 90]
+ordenar_decrescente(vetor)
+print("Vetor ordenado em ordem decrescente:", vetor)
+
+pares, impares = contar_pares_impares(vetor)
+print("Quantidade de números pares:", pares)
+print("Quantidade de números ímpares:", impares)
+
+"""7. Crie uma função que aceite um vetor de números inteiros e retorne o terceiro maior número.
+Certifique-se de que sua função funcione mesmo se houver números duplicados no vetor.
+"""
+
+def terceiro_maior(vetor):
+    # Remover duplicatas e ordenar em ordem decrescente
+    vetor_unico = list(set(vetor))
+    vetor_unico.sort(reverse=True)
+
+    if len(vetor_unico) >= 3:
+        return vetor_unico[2]  # O terceiro elemento é o terceiro maior
+    else:
+        return None  # Não há um terceiro maior número
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 25, 90]
+terceiro_maior_numero = terceiro_maior(vetor)
+
+if terceiro_maior_numero is not None:
+    print("O terceiro maior número é:", terceiro_maior_numero)
+else:
+    print("Não foi possível encontrar o terceiro maior número.")
+
+"""8. Crie uma função que receba um vetor de números inteiros e retorne a mediana, ou seja, o valor do
+meio quando o vetor é ordenado. Certifique-se de que sua função funcione para vetores com um
+número ímpar de elementos.
+"""
+
+def calcular_mediana(vetor):
+    # Ordena o vetor
+    vetor_ordenado = sorted(vetor)
+
+    # Calcula o índice do elemento do meio
+    meio = len(vetor_ordenado) // 2
+
+    # Verifica se o tamanho do vetor é ímpar
+    if len(vetor_ordenado) % 2 == 1:
+        return vetor_ordenado[meio]
+    else:
+        # Se o tamanho for par, calcula a média dos dois elementos do meio
+        elemento1 = vetor_ordenado[meio - 1]
+        elemento2 = vetor_ordenado[meio]
+        return (elemento1 + elemento2) / 2
+
+# Exemplo de uso:
+vetor = [64, 34, 25, 12, 22, 11, 25, 90]
+mediana = calcular_mediana(vetor)
+
+print("A mediana é:", mediana)
