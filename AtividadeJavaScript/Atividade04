@@ -1,1 +1,32 @@
+// Cria um array vazio para armazenar as notas
+let notas = [];
+
+// Solicita ao usuário as três notas e as adiciona ao array
+for (let i = 0; i < 3; i++) {
+    let nota = parseFloat(prompt(`Digite a nota ${i + 1}: `));
+    notas.push(nota);
+}
+
+// Calcula a média aritmética das notas
+let soma = 0;
+for (let i = 0; i < notas.length; i++) {
+    soma += notas[i];
+}
+let media = soma / notas.length;
+
+// Verifica a situação do aluno com base na média
+if (media <= 4) {
+    console.log("Aluno reprovado");
+} else if (media < 7) {
+    console.log("Aluno em recuperação");
+    let notaRecuperacao = parseFloat(prompt("Digite a nota da recuperação: "));
+    let mediaFinal = (media + notaRecuperacao) / 2;
+    if (mediaFinal >= 5) {
+        console.log("Aluno aprovado na recuperação");
+    } else {
+        console.log("Aluno reprovado na recuperação");
+    }
+} else {
+    console.log("Aluno aprovado");
+}
 
