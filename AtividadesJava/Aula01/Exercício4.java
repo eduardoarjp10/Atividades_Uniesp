@@ -1,7 +1,7 @@
 package Aula01;
 import java.util.Scanner;
 
-public class Ex04 {
+public class Exercício4 {
 
     public static void main(String[] args) {
         
