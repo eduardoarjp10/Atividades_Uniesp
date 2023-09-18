@@ -1,1 +1,239 @@
+"""LISTA DE EXERCÍCIO – 03 - REVISÃO (nisston)
+1. Escreva um programa que recebe cinco notas de um aluno e calcula a média. Em seguida, exiba se o aluno foi aprovado (média maior ou igual a 7) ou reprovado (média menor que 7).
+"""
 
+# Solicita ao usuário as cinco notas do aluno
+nota1 = float(input("Digite a primeira nota: "))
+nota2 = float(input("Digite a segunda nota: "))
+nota3 = float(input("Digite a terceira nota: "))
+nota4 = float(input("Digite a quarta nota: "))
+nota5 = float(input("Digite a quinta nota: "))
+
+# Calcula a média das notas
+media = (nota1 + nota2 + nota3 + nota4 + nota5) / 5
+
+# Verifica se o aluno foi aprovado ou reprovado
+if media >= 7:
+    situacao = "Aprovado"
+else:
+    situacao = "Reprovado"
+
+# Exibe a média e a situação do aluno
+print(f"A média do aluno é {media:.2f}")
+print(f"Situação do aluno: {situacao}")
+
+"""2. Escreva uma função que calcula o fatorial de um número inteiro positivo fornecido pelo usuário."""
+
+def calcular_fatorial(numero):
+    if numero < 0:
+        return "O fatorial não está definido para números negativos."
+    elif numero == 0:
+        return 1  # O fatorial de 0 é 1
+    else:
+        fatorial = 1
+        for i in range(1, numero + 1):
+            fatorial *= i
+        return fatorial
+
+# Solicita ao usuário o número para calcular o fatorial
+numero = int(input("Digite um número inteiro positivo para calcular o fatorial: "))
+
+# Chama a função para calcular o fatorial e exibe o resultado
+resultado = calcular_fatorial(numero)
+print(f"O fatorial de {numero} é {resultado}")
+
+"""3. Crie uma função que verifica se uma palavra ou frase é um palíndromo (lê-se igual de trás para frente, desconsiderando espaços e pontuação)."""
+
+import re
+
+def eh_palindromo(texto):
+    # Remove espaços e pontuação, além de tornar tudo minúsculo
+    texto = re.sub(r'[^a-zA-Z]', '', texto).lower()
+
+    # Verifica se o texto é igual ao seu reverso
+    return texto == texto[::-1]
+
+# Solicita ao usuário a palavra ou frase a ser verificada
+texto = input("Digite uma palavra ou frase para verificar se é um palíndromo: ")
+
+# Chama a função para verificar se o texto é um palíndromo e exibe o resultado
+if eh_palindromo(texto):
+    print(f"'{texto}' é um palíndromo!")
+else:
+    print(f"'{texto}' não é um palíndromo.")
+
+"""4. Escreva um programa que recebe um número inteiro positivo e calcula a soma de seus dígitos"""
+
+# Solicita ao usuário um número inteiro positivo
+numero = int(input("Digite um número inteiro positivo: "))
+
+# Verifica se o número é positivo
+if numero < 0:
+    print("Por favor, digite um número inteiro positivo.")
+else:
+    # Inicializa a variável para armazenar a soma dos dígitos
+    soma_digitos = 0
+
+    # Itera através dos dígitos do número
+    while numero > 0:
+        # Obtém o último dígito do número
+        digito = numero % 10
+        # Adiciona o dígito à soma
+        soma_digitos += digito
+        # Remove o último dígito do número
+        numero //= 10
+
+    # Exibe a soma dos dígitos
+    print("A soma dos dígitos é:", soma_digitos)
+
+"""5. Crie uma função que verifica se um número é primo ou não."""
+
+def eh_primo(numero):
+    if numero <= 1:
+        return False  # Números menores ou iguais a 1 não são primos
+
+    # Verifica se o número é divisível por algum número de 2 até a raiz quadrada do número
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            return False  # O número é divisível, portanto não é primo
+
+    return True  # Se não foi divisível por nenhum número, é primo
+
+# Solicita ao usuário o número a ser verificado
+numero = int(input("Digite um número para verificar se é primo: "))
+
+# Chama a função para verificar se o número é primo e exibe o resultado
+if eh_primo(numero):
+    print(f"{numero} é um número primo.")
+else:
+    print(f"{numero} não é um número primo.")
+
+"""6. Escreva um programa que recebe uma string e conta a quantidade de vogais (a, e, i, o, u) presentes nela."""
+
+# Solicita ao usuário a entrada da string
+texto = input("Digite uma string: ")
+
+# Inicializa o contador de vogais
+contagem_vogais = 0
+
+# Define as vogais em uma lista
+vogais = ['a', 'e', 'i', 'o', 'u']
+
+# Itera através da string para contar as vogais
+for char in texto:
+    # Converte o caractere para minúsculo para lidar com maiúsculas e minúsculas
+    char = char.lower()
+    if char in vogais:
+        contagem_vogais += 1
+
+# Exibe o resultado
+print("A quantidade de vogais na string é:", contagem_vogais)
+
+"""7. Crie uma função que calcula o índice de massa corporal (IMC) de uma pessoa com base em sua altura e peso.
+
+
+
+"""
+
+def calcular_imc(peso, altura):
+    try:
+        imc = peso / (altura ** 2)
+        return imc
+    except ZeroDivisionError:
+        return "Altura não pode ser zero."
+
+# Solicita ao usuário o peso e a altura
+peso = float(input("Digite o peso em quilogramas (kg): "))
+altura = float(input("Digite a altura em metros (m): "))
+
+# Calcula o IMC chamando a função
+resultado = calcular_imc(peso, altura)
+
+# Exibe o resultado
+if isinstance(resultado, float):
+    print(f"Seu IMC é: {resultado:.2f}")
+else:
+    print(resultado)
+
+"""8. Escreva um programa que converte uma temperatura em Celsius para Fahrenheit ou vice-versa, dependendo da escolha do usuário."""
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+print("Selecione a conversão:")
+print("1. Celsius para Fahrenheit")
+print("2. Fahrenheit para Celsius")
+
+# Solicita ao usuário a escolha da conversão
+choice = input("Digite 1 ou 2: ")
+
+if choice == '1':
+    celsius = float(input("Digite a temperatura em Celsius: "))
+    result = celsius_to_fahrenheit(celsius)
+    print(f"{celsius} graus Celsius é igual a {result} graus Fahrenheit.")
+elif choice == '2':
+    fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+    result = fahrenheit_to_celsius(fahrenheit)
+    print(f"{fahrenheit} graus Fahrenheit é igual a {result} graus Celsius.")
+else:
+    print("Escolha inválida")
+
+"""9. Crie uma calculadora que realiza operações de adição, subtração, multiplicação e divisão, com base na escolha do usuário."""
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Erro! Divisão por zero não é permitida."
+    return x / y
+
+print("Selecione a operação:")
+print("1. Adição")
+print("2. Subtração")
+print("3. Multiplicação")
+print("4. Divisão")
+
+# Solicita ao usuário a escolha da operação
+choice = input("Digite 1/2/3/4: ")
+
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+
+if choice == '1':
+    print("Resultado:", add(num1, num2))
+elif choice == '2':
+    print("Resultado:", subtract(num1, num2))
+elif choice == '3':
+    print("Resultado:", multiply(num1, num2))
+elif choice == '4':
+    print("Resultado:", divide(num1, num2))
+else:
+    print("Escolha inválida")
+
+"""10. Escreva uma função que gera a sequência de Fibonacci até um determinado número de termos especificado pelo usuário."""
+
+def fibonacci(n):
+    fib_sequence = [0, 1]  # Começa com os dois primeiros termos
+    while len(fib_sequence) < n:
+        next_term = fib_sequence[-1] + fib_sequence[-2]
+        fib_sequence.append(next_term)
+    return fib_sequence
+
+# Solicita ao usuário o número de termos desejados
+n = int(input("Digite o número de termos da sequência de Fibonacci desejados: "))
+
+if n <= 0:
+    print("Digite um número maior que zero.")
+else:
+    result = fibonacci(n)
+    print("Sequência de Fibonacci com", n, "termos:", result)
