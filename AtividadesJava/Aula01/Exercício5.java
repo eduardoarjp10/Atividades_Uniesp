@@ -7,10 +7,10 @@ public class Exercío05 {
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
 
-        System.out.println("informe seu numero de matricula: ");
+        System.out.println("Digite o numero da sua matricula: ");
         int matricula = sc.nextInt();
 
-        System.out.println("Informe seu nome: ");
+        System.out.println("Digite seu nome: ");
         String nome = sc2.nextLine();
 
         System.out.println("Informe seu salario bruto: ");
