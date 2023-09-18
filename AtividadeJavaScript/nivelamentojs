@@ -1,1 +1,38 @@
+// Inicialize variáveis para armazenar os dados
+let maiorAltura = 0;
+let menorAltura = Infinity;
+let somaAlturaHomens = 0;
+let quantidadeMulheres = 0;
 
+// Loop para coletar dados de 15 pessoas
+for (let i = 0; i < 15; i++) {
+  let altura = parseFloat(prompt(`Informe a altura da pessoa ${i + 1} (em metros):`));
+  let genero = prompt(`Informe o gênero da pessoa ${i + 1} (M ou F):`).toUpperCase();
+
+  // Verifique a maior e menor altura
+  if (altura > maiorAltura) {
+    maiorAltura = altura;
+  }
+  if (altura < menorAltura) {
+    menorAltura = altura;
+  }
+
+  // Verifique o gênero e calcule a soma das alturas dos homens
+  if (genero === "M") {
+    somaAlturaHomens += altura;
+  }
+
+  // Verifique o gênero para contar mulheres
+  if (genero === "F") {
+    quantidadeMulheres++;
+  }
+}
+
+// Calcule a média das alturas dos homens
+let mediaAlturaHomens = somaAlturaHomens / 15;
+
+// Exiba os resultados
+console.log(`Maior altura: ${maiorAltura} metros`);
+console.log(`Menor altura: ${menorAltura} metros`);
+console.log(`Média da altura dos homens: ${mediaAlturaHomens.toFixed(2)} metros`);
+console.log(`Quantidade de mulheres: ${quantidadeMulheres}`);
