@@ -1,1 +1,34 @@
 
+# Inicialize variáveis para armazenar os dados
+maior_altura = 0
+menor_altura = float('inf')
+soma_altura_homens = 0
+quantidade_mulheres = 0
+
+# Loop para coletar dados de 15 pessoas
+for i in range(15):
+    altura = float(input(f"Informe a altura da pessoa {i+1} (em metros): "))
+    genero = input(f"Informe o gênero da pessoa {i+1} (M ou F): ").upper()
+
+    # Verificar a maior e menor altura
+    if altura > maior_altura:
+        maior_altura = altura
+    if altura < menor_altura:
+        menor_altura = altura
+
+    # Verificar o gênero e calcule a soma das alturas dos homens
+    if genero == "M":
+        soma_altura_homens += altura
+
+    # Verificar o gênero para contar mulheres
+    if genero == "F":
+        quantidade_mulheres += 1
+
+# Calcular a média das alturas dos homens
+media_altura_homens = soma_altura_homens / 15
+
+# Exibir os resultados
+print(f"Maior altura: {maior_altura} metros")
+print(f"Menor altura: {menor_altura} metros")
+print(f"Média da altura dos homens: {media_altura_homens:.2f} metros")
+print(f"Quantidade de mulheres: {quantidade_mulheres}")
