@@ -1,1 +1,173 @@
+LISTA DE EXERCÍCIO – 01 - REVISÃO (nisston)
 
+1. Faça um programa que calcule a média de três números inseridos pelo usuário
+"""
+
+nota1 = float(input("Insira sua primeira nota:"))
+nota2 = float(input("Insira sua segunda nota:"))
+nota3 = float(input("Insira sua terceira nota:"))
+
+calculo = nota1 + nota2 + nota3
+media = calculo*3
+
+print(f"Sua media foi {media}")
+
+"""2. Crie um programa que determine se um número inserido pelo usuário é par ou ímpar"""
+
+numero = int(input("Insira um numero:"))
+
+if numero % 2 == 0:
+     print(f"{numero} é um numero par")
+else:
+     print(f"{numero} é um numero impar")
+
+"""3. Escreva um programa que solicite um número ao usuário e imprima todos os números pares de 0 até esse número."""
+
+numero = int(input("Digite um numero par:"))
+
+print(f"Numeros pares de 0 até {numero}: ")
+for i in range(0, numero + 1, 2):
+     print(i)
+
+"""4. Crie um programa que leia uma lista de números e exiba o maior e o menor valor da lista."""
+
+numeros = []
+
+quantidade = int(input("Quantos números você deseja inserir na lista? "))
+for i in range(quantidade):
+    numero = float(input(f"Digite o {i+1}º número: "))
+    numeros.append(numero)
+
+maior_valor = max(numeros)
+menor_valor = min(numeros)
+
+print(f"O maior valor da lista é: {maior_valor}")
+print(f"O menor valor da lista é: {menor_valor}")
+
+"""5. Faça um programa que leia uma lista de números e retorne a média dos números pares."""
+
+def calcular_media_pares(lista):
+    numeros_pares = [num for num in lista if num % 2 == 0]
+    if not numeros_pares:
+        return None
+    return sum(numeros_pares) / len(numeros_pares)
+
+numeros = []
+
+quantidade = int(input("Quantos números você deseja inserir na lista? "))
+for i in range(quantidade):
+    numero = float(input(f"Digite o {i+1}º número: "))
+    numeros.append(numero)
+
+media_pares = calcular_media_pares(numeros)
+
+if media_pares is not None:
+    print(f"A média dos números pares é: {media_pares}")
+else:
+    print("Não há números pares na lista.")
+
+"""6. Escreva um programa que peça um número inteiro positivo ao usuário e calcule o fatorial desse"""
+
+numero = int(input("Digite um número inteiro positivo: "))
+
+if numero < 0:
+    print("O número deve ser positivo.")
+else:
+    fatorial = 1
+    for i in range(1, numero + 1):
+        fatorial *= i
+    print(f"O fatorial de {numero} é {fatorial}")
+
+"""7. Crie um programa que imprima a sequência de Fibonacci até um valor inserido pelo usuário."""
+
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        next_fib = fib_sequence[-1] + fib_sequence[-2]
+        fib_sequence.append(next_fib)
+
+    return fib_sequence
+
+numero = int(input("Digite um valor para a sequência de Fibonacci: "))
+sequencia = fibonacci(numero)
+
+print("Sequência de Fibonacci:")
+for num in sequencia:
+    print(num, end=" ")
+
+"""8. Faça um programa que determine se um número é primo ou não."""
+
+def eh_primo(numero):
+    if numero <= 1:
+        return False
+    if numero <= 3:
+        return True
+    if numero % 2 == 0 or numero % 3 == 0:
+        return False
+
+    i = 5
+    while i * i <= numero:
+        if numero % i == 0 or numero % (i + 2) == 0:
+            return False
+        i += 6
+
+    return True
+
+numero = int(input("Digite um número: "))
+if eh_primo(numero):
+    print(f"{numero} é um número primo.")
+else:
+    print(f"{numero} não é um número primo.")
+
+"""9. Escreva um programa que leia uma lista de nomes e retorne uma nova lista com apenas os nomes que começam com a letra 'A'."""
+
+def filtrar_nomes_comecando_com_A(lista_nomes):
+    nomes_comecando_com_A = [nome for nome in lista_nomes if nome.startswith('A')]
+    return nomes_comecando_com_A
+
+quantidade = int(input("Quantos nomes você deseja inserir na lista? "))
+nomes = []
+for i in range(quantidade):
+    nome = input(f"Digite o {i+1}º nome: ")
+    nomes.append(nome)
+
+nomes_comecando_com_A = filtrar_nomes_comecando_com_A(nomes)
+
+print("Nomes que começam com 'A':")
+for nome in nomes_comecando_com_A:
+    print(nome)
+
+"""10. Crie um programa que simule o jogo "Pedra, Papel e Tesoura" entre o usuário e o computador. O programa deve solicitar a escolha do usuário e, em seguida, escolher aleatoriamente a escolha do computador e determinar o vencedor."""
+
+import random
+
+def determinar_vencedor(escolha_usuario, escolha_computador):
+    if escolha_usuario == escolha_computador:
+        return "Empate"
+    elif (escolha_usuario == "Pedra" and escolha_computador == "Tesoura") or \
+         (escolha_usuario == "Papel" and escolha_computador == "Pedra") or \
+         (escolha_usuario == "Tesoura" and escolha_computador == "Papel"):
+        return "Você venceu!"
+    else:
+        return "O computador venceu."
+
+escolhas_possiveis = ["Pedra", "Papel", "Tesoura"]
+escolha_usuario = input("Escolha Pedra, Papel ou Tesoura: ").capitalize()
+
+if escolha_usuario in escolhas_possiveis:
+    escolha_computador = random.choice(escolhas_possiveis)
+
+    print(f"Você escolheu: {escolha_usuario}")
+    print(f"O computador escolheu: {escolha_computador}")
+
+    resultado = determinar_vencedor(escolha_usuario, escolha_computador)
+    print(resultado)
+else:
+    print("Escolha inválida. Por favor, escolha Pedra, Papel ou Tesoura.")
