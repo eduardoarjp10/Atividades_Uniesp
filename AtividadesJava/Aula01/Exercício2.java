@@ -22,7 +22,7 @@ public class Exercício2 {
 
         double Media = (nota + nota2 + nota3)/3;
 
-        System.out.println("A media do aluno foi de " + Media);
+        System.out.println("A media do aluno foi  " + Media);
 
 
         
