@@ -1,10 +1,10 @@
 package Aula05;
 
-public class NotaDeAulaApp {
+public class Nota_de_aula_App {
     
     public static void main(String[] args) {
         
-        Nota_de_aula a1 = new NotaDeAula("Toyota", "Hillux");
+        Nota_de_aula a1 = new NotaDeAula("Jeep", "Compass");
         a1.Status();
     }
 }
