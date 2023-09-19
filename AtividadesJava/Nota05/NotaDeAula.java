@@ -1,6 +1,6 @@
 package Aula05;
 
-public class NotaDeAula {
+public class Nota_de_aula {
     
     private String marca;
     private String nome;
