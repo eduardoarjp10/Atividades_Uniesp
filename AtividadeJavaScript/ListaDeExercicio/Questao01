@@ -1,5 +1,5 @@
 var  populacaoA = 80000;
-var populacaoB = 00000;
+var populacaoB = 200000;
 
 const taxaCrescimentoA = 0.03;
 const taxaCrescimentoB = 0.015;
