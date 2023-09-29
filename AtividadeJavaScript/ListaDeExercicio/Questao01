@@ -1,17 +1,14 @@
-var  populacaoA = 80000;
-var populacaoB = 200000;
-
-const taxaCrescimentoA = 0.03;
-const taxaCrescimentoB = 0.015;
-
+var populacaoA = parseFloat(8000);
+var populacaoB = parseFloat(20000);
 var anos = 0;
-for (let index = 0; index < anos + 1; index++) {
-  if (populacaoA < populacaoB) { 
-    populacaoA = parseInt(populacaoA * (1 + taxaCrescimentoA));
-    populacaoB = parseInt(populacaoB * (1 + taxaCrescimentoB));
+
+const CrescimentoA = 0.03;
+const CrescimentoB = 0.015;
+
+while (populacaoA < populacaoB) {
+    populacaoA += populacaoA * CrescimentoA;
+    populacaoB += populacaoB * CrescimentoB;
     anos++;
 }
-console.log( 
- 'anos: ${anos}, populacaoA: ${populacaoA}, populacaoB: ${populacaoB}'
-);
-}
+
+console.log(`Aproximadamente ${anos} anos , para a populção A ultrapassar a B`);
