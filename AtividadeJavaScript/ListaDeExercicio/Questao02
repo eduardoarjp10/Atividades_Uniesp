@@ -1,1 +1,16 @@
+var pares = 0;
+var impares = 0;
+for (let index = 0; index < 10; index ++) {
+  var numero = parsenInt(prompt("Informe um número inteiro:"));
 
+if (numero % 2 == 0) {
+  pares++;
+} else {
+  impares++;
+ }
+}
+
+console.log('quantidade:{
+    pares: ${pares},
+    impares: %{impares}
+}');
